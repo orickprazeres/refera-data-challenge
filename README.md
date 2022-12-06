@@ -12,43 +12,55 @@ Importânte ressaltar que esse desafio é válido para analistas, engenheiros e 
 
 [Modelo de dados](https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/)
 
-## Pontos importantes:
-1. Todo o desafio precisa ser feito em SQL
-2. O desafio tem prazo máximo de uma semana
-3. Estamos à disposição para ajudar com eventuais dúvidas sobre as perguntas ou eventuais esclarecimentos, desde que essas perguntas não sejam para obter ajuda técnica na resolução.
-4. Faça o seu melhor nas questões, mesmo que não tenha conseguido chegar na resposta. Deixe comentários, explique sua linha de raciocínio ou elabore até onde conseguir.
-5. O desafio não foi feito para ter pegadinhas. A ideia dele é ser objetivo.
-6. Iremos avaliar se chegou na correta solução, mas teremos iremos avaliar a qualidade do código feito, as boas práticas e padrões estabelecidos e os comentários e raciocínio proposto.
-7. Não é necessário submeter os dados de retorno das respostas, queremos ver os códigos SQL
-8. Coloque cada pergunta em um arquivo .sql seguindo o seguinte padrão: 
-```[n]_answer_[first_name]_[last_name].sql``` (ex: 1_answer_neymar_junior.sql)
-9. Faça upload dos arquivos em um repositório seu no github, gitlab, etc... **Não faça um fork do repositório!**
-10. Envio o link do repositório como resposta do desafio ao finalizar.
+## Comentário sobre o desafio:
+Antes de começarmos a responder as perguntas é preciso primeiro analisar e visualizar a estrutura do banco de dados:
 
-## Respostas:
-Para visualizar as respostas com e os comentários [clique aqui](https://github.com/orickprazeres/refera-data-short-challenge./tree/main/respostas)
+![estrutura_banco_de_dados](https://github.com/orickprazeres/refera-data-challenge/blob/main/Captures/dvdrental%20-%20public.png)
 
-### Pergunta 1:
-Qual foi os top 2 filmes mais alugados de todos os tempos?
-
+### Pergunta 01: Qual foi os top 2 filmes mais alugados de todos os tempos?
 **Saída esperada:** 2 colunas(título do filme, quantidade) e 2 linhas.
 
-`Respota:` [1_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/respostas/1_answer_ricardo_prazeres.sql) <br>
-![1_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/Captures/1.png)
+**Comentário:** <br>
+Na primeira questão tivemos como desafio primeiro realizar um select de acordo com os filmes mais vistos de acordo com o dataset e assim dentro desse select obtermos apenas os 2 primeiros filmes da lista, assim foi utilizando as tabelas `rental`, `inventory` e `film` com o intuito de realizar o `count` e um `group by` através da coluna `film_id`, que estão vinculadas de acordo com estrutura das tabelas como foi dito anteriormente.
 
-### Pergunta 2:
-Dentre os top 16 filmes mais alugados, qual o nome completo do ator mais presente nesses filmes?
+**Estrutura:** <br>
+![estrutura_1_pergunta](https://github.com/orickprazeres/refera-data-challenge/blob/main/Captures/dvdrental%20-%20public%20-%20inventory.png)
 
+**Respota:** <br>
+[1_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-challenge/blob/main/respostas/1_answer_ricardo_prazeres.sql)
+
+**Resultado:** <br>
+![1_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-challenge/blob/main/Captures/1.png)
+
+### Pergunta 02: No top 16 filmes mais alugados, qual o nome completo do ator mais presente nesses filmes?
 **Saída esperada:** 1 coluna e 1 linha com o nome completo.
 
-`Respota:` [2_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/respostas/2_answer_ricardo_prazeres.sql) <br>
-![2_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/Captures/2.png)
+**Comentário:** <br>
+Para essa pergunta foi utilizado a estrutura da primeira pergunta, e realizando um `left Join` com as tabelas `film_actor` e `actor`. Foi realizando um `Count` e `group by` na coluna `actor_id` para obtermos o número de vezes que algum ator é repetido e assim realizamos uma subquery para selecionar o `nome_completo` do ator mais repetido.
 
-### Pergunta 3:
-Quantos clientes novos a empresa adquiriu por mês? Considere a data de início de um novo cliente como sendo a data do primeiro filme que esse cliente alugou.
+**Estrutura:** <br>
+![estrutura_2_pergunta](https://github.com/orickprazeres/refera-data-challenge/blob/main/Captures/dvdrental%20-%20public%20-%20film_actor.png)
 
+**Respota:** <br>
+ [2_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-challenge/blob/main/respostas/2_answer_ricardo_prazeres.sql)
+
+**Resultado:** <br>
+![2_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-challenge/blob/main/Captures/2.png)
+
+### Pergunta 03: Quantos clientes novos a empresa adquiriu por mês?
+**Observação:** Considere a data de início de um novo cliente como sendo a data do primeiro filme que esse cliente alugou. <br>
 **Saída esperada:** 2 colunas ( mês_entrada_cliente:date | quantidade_de_clientes:int ) e 3 linhas.
 
-`Respota:` [3_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/respostas/3_answer_ricardo_prazeres.sql) <br>
-![3_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/Captures/3.png)
+**Comentário:** <br>
+Ao analisar o que se pediu para a pergunta foi visto que tudo que precisávamos estava na tabela `rental` onde obtemos o mês de entrada dos clientes e realizamos um `count `  e um `group by` para assim receber o numero de novos clientes. De acordo com o que foi pedido na estrutura final a coluna `mês_entrada_cliente` ficou como o type de *date* por isso ele fica nesse formato de ‘YYYY-MM-DD’.
+
+**Estrutura:** <br>
+![estrutura_2_pergunta](https://github.com/orickprazeres/refera-data-challenge/blob/main/Captures/dvdrental%20-%20public%20-%20rental.png)
+
+**Respota:** <br>
+ [3_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-challenge/blob/main/respostas/3_answer_ricardo_prazeres.sql)
+
+**Resultado:** <br>
+![3_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-challenge/blob/main/Captures/3.png)
+
 
