@@ -1,10 +1,8 @@
-# Seja bem vindo ao desafio de SQL da Refera!
+# Bem vindo ao desafio de SQL da Refera!
 
-O objetivo desse desafio é ser algo rápido para exemplificar alguns desafios do dia a dia de quem trabalha com dados. Queremos com esse desafio avaliar o seu conhecimento básico em SQL, banco de dados e entender mais quais as boas práticas você segue para construção de código.
+O objetivo desse desafio: avaliar o conhecimento básico em SQL, banco de dados e entender mais quais as boas práticas você segue para construção de código.
 
 Importânte ressaltar que esse desafio é válido para analistas, engenheiros e cientistas de dados. Acreditamos que mesmo tendo diferenças entre as áreas, o SQL deve ser um pilar forte para todos.
-
-Recomendamos utilizar o banco de dados PostgreSQL. Os dados e o desafio foram montados pensando nesse banco.
 
 ## Os dados podem ser carregados de três formas diferentes(em ordem do mais recomendado pro menos recomendado):
 1. Usando docker. Clonando e rodando: ```docker compose up```
@@ -27,20 +25,30 @@ Recomendamos utilizar o banco de dados PostgreSQL. Os dados e o desafio foram mo
 9. Faça upload dos arquivos em um repositório seu no github, gitlab, etc... **Não faça um fork do repositório!**
 10. Envio o link do repositório como resposta do desafio ao finalizar.
 
-## Pergunta 1:
+## Respostas:
+Para visualizar as respostas com e os comentários [clique aqui](https://github.com/orickprazeres/refera-data-short-challenge./tree/main/respostas)
+
+### Pergunta 1:
 Qual foi os top 2 filmes mais alugados de todos os tempos?
 
 **Saída esperada:** 2 colunas(título do filme, quantidade) e 2 linhas.
 
-## Pergunta 2:
+`Respota:` [1_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/respostas/1_answer_ricardo_prazeres.sql) <br>
+![1_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/Captures/1.png)
+
+### Pergunta 2:
 Dentre os top 16 filmes mais alugados, qual o nome completo do ator mais presente nesses filmes?
 
 **Saída esperada:** 1 coluna e 1 linha com o nome completo.
 
-## Pergunta 3:
+`Respota:` [2_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/respostas/2_answer_ricardo_prazeres.sql) <br>
+![2_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/Captures/2.png)
+
+### Pergunta 3:
 Quantos clientes novos a empresa adquiriu por mês? Considere a data de início de um novo cliente como sendo a data do primeiro filme que esse cliente alugou.
 
 **Saída esperada:** 2 colunas ( mês_entrada_cliente:date | quantidade_de_clientes:int ) e 3 linhas.
 
-
+`Respota:` [3_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/respostas/3_answer_ricardo_prazeres.sql) <br>
+![3_answer_ricardo_prazeres.sql](https://github.com/orickprazeres/refera-data-short-challenge./blob/main/Captures/3.png)
 
